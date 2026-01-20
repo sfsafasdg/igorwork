@@ -1,432 +1,202 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Уборка участков — Игорь</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Прибирання ділянок у Фастові під ключ | Вивіз сміття</title>
+  <meta name="description" content="Сучасний сервіс прибирання ділянок у Фастові. Вивіз сміття, розчистка, спил дерев. Калькулятор ціни та швидка заявка." />
 
-<style>
-/* ---------- Общие стили ---------- */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    line-height: 1.5;
-    background: #111; /* основной фон чёрный */
-    color: #fff;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* ---------- Меню ---------- */
-nav {
-    position: sticky;
-    top: 0;
-    background: #222;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px 0;
-    z-index: 1000;
-}
-nav a {
-    color: #ff6a00; /* оранжевый */
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-nav a:hover {
-    color: #ffa500;
-}
-
-/* ---------- Шапка ---------- */
-header {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 5px #000;
-}
-header p {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-}
-header .btn {
-    background: #ff6a00;
-    color: #fff;
-    padding: 15px 35px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
-header .btn:hover {
-    background: #ffa500;
-}
-
-/* ---------- Контейнер ---------- */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* ---------- Услуги ---------- */
-#services {
-    padding: 60px 20px;
-    text-align: center;
-    background: #111;
-}
-#services h2 {
-    font-size: 2.5em;
-    color: #ff6a00;
-    margin-bottom: 50px;
-}
-.services-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-.service {
-    background: linear-gradient(135deg, #ff6a00, #ff8a00);
-    color: #111;
-    padding: 30px 20px;
-    border-radius: 15px;
-    width: 280px;
-    box-shadow: 0 10px 20px rgba(255,106,0,0.4);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.service:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(255,106,0,0.6);
-}
-.service h3 {
-    margin-top: 15px;
-}
-.service p {
-    font-size: 0.95em;
-    margin: 15px 0;
-}
-.service .btn {
-    display: inline-block;
-    background: #111;
-    color: #ff6a00;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.service .btn:hover {
-    background: #222;
-}
-.service .icon {
-    font-size: 50px;
-}
-
-/* ---------- Прайс ---------- */
-#prices {
-    background: #1a1a1a;
-    padding: 60px 20px;
-    text-align: center;
-}
-#prices h2 {
-    font-size: 2.5em;
-    color: #ff6a00;
-    margin-bottom: 40px;
-}
-.price-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-.price-card {
-    background: #222;
-    color: #ff6a00;
-    padding: 30px 20px;
-    border-radius: 15px;
-    width: 280px;
-    box-shadow: 0 10px 20px rgba(255,106,0,0.4);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.price-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(255,106,0,0.6);
-}
-.price-card h3 {
-    margin-bottom: 15px;
-}
-.price-card .price {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-.price-card .btn {
-    background: #ff6a00;
-    color: #111;
-    padding: 10px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.price-card .btn:hover {
-    background: #ffa500;
-}
-
-/* ---------- Отзывы ---------- */
-#reviews {
-    background: #111;
-    padding: 60px 20px;
-    text-align: center;
-}
-#reviews h2 {
-    font-size: 2.5em;
-    color: #ff6a00;
-    margin-bottom: 40px;
-}
-.review {
-    background: #222;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 450px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
-    transition: transform 0.3s;
-}
-.review:hover {
-    transform: translateY(-5px);
-}
-.review strong {
-    color: #ffa500;
-}
-
-/* ---------- Галерея ---------- */
-#gallery {
-    padding: 60px 20px;
-    text-align: center;
-    background: #1a1a1a;
-}
-#gallery h2 {
-    font-size: 2.5em;
-    color: #ff6a00;
-    margin-bottom: 40px;
-}
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-.gallery-grid img {
-    width: 260px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
-    transition: transform 0.3s;
-}
-.gallery-grid img:hover {
-    transform: scale(1.05);
-}
-
-/* ---------- Контакты ---------- */
-#contact {
-    padding: 60px 20px;
-    text-align: center;
-    background: #111;
-}
-#contact h2 {
-    font-size: 2.5em;
-    color: #ff6a00;
-    margin-bottom: 25px;
-}
-#contact p {
-    font-size: 1.1em;
-    margin: 5px 0;
-}
-#contact input, #contact textarea {
-    width: 90%;
-    max-width: 320px;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #333;
-    margin: 5px 0;
-}
-#contact button {
-    background: #ff6a00;
-    color: #111;
-    padding: 14px 35px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-#contact button:hover {
-    background: #ffa500;
-}
-
-/* ---------- Footer ---------- */
-footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 25px 0;
-}
-
-/* ---------- Адаптив ---------- */
-@media(max-width: 768px){
-    .services-list, .price-cards, .gallery-grid {
-        flex-direction: column;
-        align-items: center;
+  <style>
+    :root{
+      --accent:#22c55e;
+      --accent-dark:#16a34a;
+      --dark:#0f172a;
+      --gray:#64748b;
+      --bg:#f8fafc;
     }
-    nav {
-        flex-direction: column;
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+    img{max-width:100%;display:block;border-radius:18px}
+    a{text-decoration:none;color:inherit}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    header{position:sticky;top:0;background:#fff;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    nav a{margin-left:22px;font-weight:600;color:var(--gray)}
+    nav a:hover{color:var(--accent)}
+
+    section{padding:90px 0}
+    h2{text-align:center;font-size:36px;margin-bottom:50px}
+
+    .hero{padding:110px 0;background:linear-gradient(120deg,#dcfce7,#ffffff)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
+    .hero h1{font-size:46px;line-height:1.15;margin-bottom:20px}
+    .hero p{font-size:18px;color:var(--gray);margin-bottom:30px}
+
+    .btn{display:inline-block;padding:15px 34px;background:var(--accent);color:#fff;font-weight:700;border-radius:16px;transition:.25s}
+    .btn:hover{background:var(--accent-dark);transform:translateY(-3px);box-shadow:0 14px 32px rgba(34,197,94,.45)}
+
+    .services,.reviews,.gallery,.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+    .card{background:#fff;padding:32px;border-radius:26px;box-shadow:0 18px 40px rgba(0,0,0,.08);transition:.3s}
+    .card:hover{transform:translateY(-8px)}
+    .card h3{margin-bottom:10px}
+    .card p{color:var(--gray)}
+
+    .calculator{max-width:720px;margin:0 auto;background:#fff;padding:45px;border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,.12)}
+    .calculator label{font-weight:600;margin-top:18px;display:block}
+    .calculator input,.calculator select{width:100%;padding:15px;margin-top:8px;border-radius:14px;border:1px solid #e2e8f0}
+    .price{font-size:34px;font-weight:800;margin-top:28px;text-align:center}
+
+    .contact-box{max-width:680px;margin:0 auto;background:#fff;padding:50px;border-radius:32px;box-shadow:0 30px 65px rgba(0,0,0,.14)}
+    form{display:grid;gap:16px;margin-top:25px}
+    input,textarea{padding:15px;border-radius:14px;border:1px solid #e2e8f0;font-family:inherit}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{text-align:center;padding:30px;background:#fff;color:var(--gray)}
+
+    iframe{width:100%;height:320px;border:0;border-radius:20px;margin-top:25px}
+
+    /* animations */
+    .fade{opacity:0;transform:translateY(40px);transition:.8s}
+    .fade.show{opacity:1;transform:none}
+
+    /* messengers */
+    .messengers{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:200}
+    .messengers a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+    .tg{background:#229ED9}
+    .vb{background:#7360f2}
+
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero{text-align:center}
     }
-}
-</style>
+  </style>
 </head>
-
 <body>
 
-<!-- Меню -->
-<nav>
-    <a href="#services">Услуги</a>
-    <a href="#prices">Прайс</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#gallery">Наши работы</a>
-    <a href="#contact">Контакты</a>
-</nav>
-
 <header>
-    <h1>Уборка участков — Игорь</h1>
-    <p>Фастов | Телефон: <a href="tel:09999999" style="color:#ffa500; font-weight:bold;">09999999</a></p>
-    <a class="btn" href="tel:09999999">Позвонить</a>
+  <div class="container header-inner">
+    <strong>Прибирання ділянок</strong>
+    <nav>
+      <a href="#services">Послуги</a>
+      <a href="#why">Чому ми</a>
+      <a href="#calc">Ціна</a>
+      <a href="#reviews">Відгуки</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+  </div>
 </header>
 
-<!-- ---------- Услуги ---------- -->
-<section id="services">
-    <div class="container">
-        <h2>Наши услуги</h2>
-        <div class="services-list">
-            <div class="service">
-                <div class="icon">🧹</div>
-                <h3>Уборка участков</h3>
-                <p>Наводим порядок на дачных и садовых участках быстро и качественно.</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-            <div class="service">
-                <div class="icon">🚛</div>
-                <h3>Вывоз мусора</h3>
-                <p>Вывозим ветки, листья, строительный и бытовой мусор без задержек.</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-            <div class="service">
-                <div class="icon">🌳</div>
-                <h3>Рубка деревьев</h3>
-                <p>Аккуратно спиливаем деревья и кусты, убираем весь мусор.</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-        </div>
+<section class="hero fade">
+  <div class="container hero-grid">
+    <div>
+      <h1>Професійне прибирання ділянок у Фастові</h1>
+      <p>Вивіз сміття, розчистка території, спил дерев. Працюємо швидко, чесно та акуратно.</p>
+      <a href="#contact" class="btn">Залишити заявку</a>
     </div>
+    <img src="https://images.unsplash.com/photo-1580584125409-c236cc7e9d10?auto=format&fit=crop&w=900&q=80" alt="Прибирання ділянки">
+  </div>
 </section>
 
-<!-- ---------- Прайс ---------- -->
-<section id="prices">
-    <div class="container">
-        <h2>Прайс-лист</h2>
-        <div class="price-cards">
-            <div class="price-card">
-                <h3>Уборка участка до 10 соток</h3>
-                <p class="price">1000 грн</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-            <div class="price-card">
-                <h3>Вывоз мусора 1 м³</h3>
-                <p class="price">500 грн</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-            <div class="price-card">
-                <h3>Рубка деревьев</h3>
-                <p class="price">от 700 грн</p>
-                <a class="btn" href="#contact">Заказать</a>
-            </div>
-        </div>
+<section id="services" class="fade">
+  <div class="container">
+    <h2>Наші послуги</h2>
+    <div class="services">
+      <div class="card"><h3>Прибирання ділянки</h3><p>Повне очищення території від сміття та заростей.</p></div>
+      <div class="card"><h3>Вивіз сміття</h3><p>Будівельне та побутове сміття.</p></div>
+      <div class="card"><h3>Спил дерев</h3><p>Безпечно та без шкоди для ділянки.</p></div>
+      <div class="card"><h3>Підготовка під забудову</h3><p>Ідеально для продажу або будівництва.</p></div>
     </div>
+  </div>
 </section>
 
-<!-- ---------- Отзывы ---------- -->
-<section id="reviews">
-    <div class="container">
-        <h2>Отзывы клиентов</h2>
-        <div class="review">
-            <strong>Ольга П.</strong>
-            <p>Очень довольна работой! Участок чистый, все аккуратно.</p>
-        </div>
-        <div class="review">
-            <strong>Иван К.</strong>
-            <p>Быстро и качественно убрали участок, рекомендую!</p>
-        </div>
-        <div class="review">
-            <strong>Мария С.</strong>
-            <p>Команда молодцы, вывоз мусора сделали за один день.</p>
-        </div>
+<section id="why" class="fade">
+  <div class="container">
+    <h2>Чому обирають нас</h2>
+    <div class="why">
+      <div class="card"><h3>Чесна ціна</h3><p>Без прихованих доплат. Сума відома заздалегідь.</p></div>
+      <div class="card"><h3>Швидко</h3><p>Більшість замовлень виконуємо за 1 день.</p></div>
+      <div class="card"><h3>Акуратно</h3><p>Працюємо бережно, не пошкоджуємо територію.</p></div>
+      <div class="card"><h3>Місцева команда</h3><p>Ми з Фастова і завжди на звʼязку.</p></div>
     </div>
+  </div>
 </section>
 
-<!-- ---------- Галерея ---------- -->
-<section id="gallery">
-    <div class="container">
-        <h2>Наши работы</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1580584125409-c236cc7e9d10?auto=format&fit=crop&w=500&q=80" alt="Уборка участка">
-            <img src="https://images.unsplash.com/photo-1601582581855-47de4d7d8241?auto=format&fit=crop&w=500&q=80" alt="Вывоз мусора">
-            <img src="https://images.unsplash.com/photo-1612197520916-2d3e9e1b0cfa?auto=format&fit=crop&w=500&q=80" alt="Рубка деревьев">
-            <img src="https://images.unsplash.com/photo-1595846991448-1809a6db0b3c?auto=format&fit=crop&w=500&q=80" alt="Уборка садового участка">
-        </div>
+<section id="calc" class="fade">
+  <div class="container">
+    <h2>Розрахунок вартості</h2>
+    <div class="calculator">
+      <label>Площа ділянки (сотки)</label>
+      <input type="number" id="area" value="6">
+      <label>Тип робіт</label>
+      <select id="type">
+        <option value="1000">Легке прибирання</option>
+        <option value="2000">Середня розчистка</option>
+        <option value="3000">Сильне забруднення</option>
+      </select>
+      <div class="price">≈ <span id="price">6000</span> грн</div>
     </div>
+  </div>
 </section>
 
-<!-- ---------- Контакты ---------- -->
-<section id="contact">
-    <div class="container">
-        <h2>Контакты</h2>
-        <p>Игорь</p>
-        <p>Фастов</p>
-        <p>Телефон: <a href="tel:09999999">09999999</a></p>
-
-        <form onsubmit="sendForm(event)">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <textarea placeholder="Сообщение"></textarea>
-            <button type="submit">Отправить заявку</button>
-        </form>
+<section id="reviews" class="fade">
+  <div class="container">
+    <h2>Відгуки клієнтів</h2>
+    <div class="reviews">
+      <div class="card"><strong>Анна</strong><p>Дуже швидко та якісно.</p></div>
+      <div class="card"><strong>Іван</strong><p>Ціна співпала з розрахунком.</p></div>
+      <div class="card"><strong>Марія</strong><p>Рекомендую!</p></div>
     </div>
+  </div>
 </section>
 
-<footer>
-    © 2026 Игорь
-</footer>
+<section id="contact" class="fade">
+  <div class="container">
+    <h2>Контакти</h2>
+    <div class="contact-box">
+      <p><strong>Ігор</strong></p>
+      <p>Фастів</p>
+      <p>Телефон: <a href="tel:099999999">099-99-99-99</a></p>
+
+      <form onsubmit="sendForm(event)">
+        <input type="text" placeholder="Ваше імʼя" required>
+        <input type="tel" placeholder="Телефон" required>
+        <textarea placeholder="Повідомлення"></textarea>
+        <button class="btn">Надіслати заявку</button>
+      </form>
+
+      <iframe src="https://www.google.com/maps?q=Fastiv&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Ігор. Всі права захищені.</footer>
+
+<div class="messengers">
+  <a class="tg" href="https://t.me/username" target="_blank">TG</a>
+  <a class="vb" href="viber://chat?number=%2B38099999999">VB</a>
+</div>
 
 <script>
-// Форма
-function sendForm(e){
-    e.preventDefault();
-    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
-    e.target.reset();
-}
+  const area=document.getElementById('area');
+  const type=document.getElementById('type');
+  const price=document.getElementById('price');
+  function calc(){price.textContent=area.value*type.value}
+  area.oninput=calc; type.onchange=calc;
 
-// Плавный скролл
-document.querySelectorAll('nav a').forEach(link=>{
-    link.addEventListener('click', function(e){
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
-    });
-});
+  function sendForm(e){e.preventDefault();alert('Заявка надіслана! Ми з вами звʼяжемось.');e.target.reset()}
+
+  document.querySelectorAll('nav a').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})})
+
+  const faders=document.querySelectorAll('.fade');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.2});
+  faders.forEach(el=>obs.observe(el));
 </script>
 
 </body>
