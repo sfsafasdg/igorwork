@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Прибирання ділянок у Фастові під ключ | Вивіз сміття</title>
+  <title>Прибирання ділянок у Фастові | Вивіз сміття</title>
   <meta name="description" content="Сучасний сервіс прибирання ділянок у Фастові. Вивіз сміття, розчистка, спил дерев. Калькулятор ціни та швидка заявка." />
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS (для слайдеров) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
   <style>
     :root{
@@ -23,6 +27,10 @@
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
     img{max-width:100%;display:block;border-radius:18px}
     a{text-decoration:none;color:inherit}
+    h1,h2,h3{color:var(--dark)}
+    h1{font-size:46px;margin-bottom:20px}
+    h2{text-align:center;font-size:36px;margin-bottom:50px}
+    h3{margin-bottom:10px}
 
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
@@ -32,25 +40,23 @@
     nav a:hover{color:var(--accent)}
 
     section{padding:90px 0}
-    h2{text-align:center;font-size:36px;margin-bottom:50px}
 
     .hero{padding:110px 0;background:linear-gradient(120deg,#dcfce7,#ffffff)}
     .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
-    .hero h1{font-size:46px;line-height:1.15;margin-bottom:20px}
     .hero p{font-size:18px;color:var(--gray);margin-bottom:30px}
 
-    .btn{display:inline-block;padding:15px 34px;background:var(--accent);color:#fff;font-weight:700;border-radius:16px;transition:.25s}
+    .btn{display:inline-block;padding:15px 34px;background:var(--accent);color:#fff;font-weight:700;border-radius:16px;transition:.25s;cursor:pointer}
     .btn:hover{background:var(--accent-dark);transform:translateY(-3px);box-shadow:0 14px 32px rgba(34,197,94,.45)}
 
     .services,.reviews,.gallery,.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
     .card{background:#fff;padding:32px;border-radius:26px;box-shadow:0 18px 40px rgba(0,0,0,.08);transition:.3s}
     .card:hover{transform:translateY(-8px)}
-    .card h3{margin-bottom:10px}
     .card p{color:var(--gray)}
 
     .calculator{max-width:720px;margin:0 auto;background:#fff;padding:45px;border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,.12)}
     .calculator label{font-weight:600;margin-top:18px;display:block}
     .calculator input,.calculator select{width:100%;padding:15px;margin-top:8px;border-radius:14px;border:1px solid #e2e8f0}
+    .calculator input[type=checkbox]{width:auto;margin-right:10px}
     .price{font-size:34px;font-weight:800;margin-top:28px;text-align:center}
 
     .contact-box{max-width:680px;margin:0 auto;background:#fff;padding:50px;border-radius:32px;box-shadow:0 30px 65px rgba(0,0,0,.14)}
@@ -62,19 +68,23 @@
 
     iframe{width:100%;height:320px;border:0;border-radius:20px;margin-top:25px}
 
-    /* animations */
+    /* Animations */
     .fade{opacity:0;transform:translateY(40px);transition:.8s}
     .fade.show{opacity:1;transform:none}
 
-    /* messengers */
+    /* Messengers */
     .messengers{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:200}
     .messengers a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
     .tg{background:#229ED9}
     .vb{background:#7360f2}
+    .wa{background:#25D366}
+
+    /* Swiper */
+    .swiper{padding-bottom:40px}
+    .swiper-slide{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.1);padding:20px;text-align:center}
 
     @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero{text-align:center}
+      .hero-grid{grid-template-columns:1fr;text-align:center}
     }
   </style>
 </head>
@@ -87,12 +97,14 @@
       <a href="#services">Послуги</a>
       <a href="#why">Чому ми</a>
       <a href="#calc">Ціна</a>
+      <a href="#gallery">Наші роботи</a>
       <a href="#reviews">Відгуки</a>
       <a href="#contact">Контакти</a>
     </nav>
   </div>
 </header>
 
+<!-- Hero -->
 <section class="hero fade">
   <div class="container hero-grid">
     <div>
@@ -104,18 +116,36 @@
   </div>
 </section>
 
+<!-- Services -->
 <section id="services" class="fade">
   <div class="container">
     <h2>Наші послуги</h2>
     <div class="services">
-      <div class="card"><h3>Прибирання ділянки</h3><p>Повне очищення території від сміття та заростей.</p></div>
-      <div class="card"><h3>Вивіз сміття</h3><p>Будівельне та побутове сміття.</p></div>
-      <div class="card"><h3>Спил дерев</h3><p>Безпечно та без шкоди для ділянки.</p></div>
-      <div class="card"><h3>Підготовка під забудову</h3><p>Ідеально для продажу або будівництва.</p></div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1560185127-6b0426a45523?auto=format&fit=crop&w=400&q=80" alt="Прибирання ділянки">
+        <h3>Прибирання ділянки</h3>
+        <p>Повне очищення території від сміття та заростей.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580584125409-c236cc7e9d10?auto=format&fit=crop&w=400&q=80" alt="Вивіз сміття">
+        <h3>Вивіз сміття</h3>
+        <p>Будівельне та побутове сміття.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599577189869-b51b68fc1fa6?auto=format&fit=crop&w=400&q=80" alt="Спил дерев">
+        <h3>Спил дерев</h3>
+        <p>Безпечно та без шкоди для ділянки.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1591047139829-4eb9c6f5d43d?auto=format&fit=crop&w=400&q=80" alt="Підготовка під забудову">
+        <h3>Підготовка під забудову</h3>
+        <p>Ідеально для продажу або будівництва.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Why -->
 <section id="why" class="fade">
   <div class="container">
     <h2>Чому обирають нас</h2>
@@ -128,34 +158,60 @@
   </div>
 </section>
 
+<!-- Calculator -->
 <section id="calc" class="fade">
   <div class="container">
     <h2>Розрахунок вартості</h2>
     <div class="calculator">
       <label>Площа ділянки (сотки)</label>
-      <input type="number" id="area" value="6">
+      <input type="number" id="area" value="6" min="1">
+
       <label>Тип робіт</label>
       <select id="type">
         <option value="1000">Легке прибирання</option>
         <option value="2000">Середня розчистка</option>
         <option value="3000">Сильне забруднення</option>
       </select>
+
+      <label><input type="checkbox" id="garbage"> Вивіз крупного сміття (+1000 грн)</label>
+      <label><input type="checkbox" id="trees"> Спил дерев (+1500 грн)</label>
+
       <div class="price">≈ <span id="price">6000</span> грн</div>
     </div>
   </div>
 </section>
 
-<section id="reviews" class="fade">
+<!-- Gallery -->
+<section id="gallery" class="fade">
   <div class="container">
-    <h2>Відгуки клієнтів</h2>
-    <div class="reviews">
-      <div class="card"><strong>Анна</strong><p>Дуже швидко та якісно.</p></div>
-      <div class="card"><strong>Іван</strong><p>Ціна співпала з розрахунком.</p></div>
-      <div class="card"><strong>Марія</strong><p>Рекомендую!</p></div>
+    <h2>Наші роботи</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161c50e07?auto=format&fit=crop&w=600&q=80" alt="Робота 1"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580584193325-96b6c9c8c9e6?auto=format&fit=crop&w=600&q=80" alt="Робота 2"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580584212153-1bb3c635b9a2?auto=format&fit=crop&w=600&q=80" alt="Робота 3"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
 
+<!-- Reviews -->
+<section id="reviews" class="fade">
+  <div class="container">
+    <h2>Відгуки клієнтів</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><strong>Анна</strong><p>Дуже швидко та якісно.</p></div>
+        <div class="swiper-slide"><strong>Іван</strong><p>Ціна співпала з розрахунком.</p></div>
+        <div class="swiper-slide"><strong>Марія</strong><p>Рекомендую!</p></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
 <section id="contact" class="fade">
   <div class="container">
     <h2>Контакти</h2>
@@ -181,22 +237,60 @@
 <div class="messengers">
   <a class="tg" href="https://t.me/username" target="_blank">TG</a>
   <a class="vb" href="viber://chat?number=%2B38099999999">VB</a>
+  <a class="wa" href="https://wa.me/38099999999" target="_blank">WA</a>
 </div>
 
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
+  // Calculator
   const area=document.getElementById('area');
   const type=document.getElementById('type');
   const price=document.getElementById('price');
-  function calc(){price.textContent=area.value*type.value}
-  area.oninput=calc; type.onchange=calc;
+  const garbage=document.getElementById('garbage');
+  const trees=document.getElementById('trees');
 
+  function calc(){
+    const base = Number(area.value) * Number(type.value);
+    const extra = (garbage.checked?1000:0) + (trees.checked?1500:0);
+    price.textContent = base + extra;
+  }
+  area.oninput=calc;
+  type.onchange=calc;
+  garbage.onchange=calc;
+  trees.onchange=calc;
+
+  // Form
   function sendForm(e){e.preventDefault();alert('Заявка надіслана! Ми з вами звʼяжемось.');e.target.reset()}
 
-  document.querySelectorAll('nav a').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})})
+  // Smooth scroll
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.onclick=e=>{
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})
+    }
+  });
 
+  // Fade in on scroll
   const faders=document.querySelectorAll('.fade');
-  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.2});
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add('show')
+    })
+  },{threshold:.2});
   faders.forEach(el=>obs.observe(el));
+
+  // Swiper sliders
+  new Swiper('.swiper', {
+    slidesPerView:1,
+    spaceBetween:30,
+    loop:true,
+    pagination:{el:'.swiper-pagination',clickable:true},
+    breakpoints:{
+      768:{slidesPerView:2},
+      1024:{slidesPerView:3}
+    }
+  });
 </script>
 
 </body>
