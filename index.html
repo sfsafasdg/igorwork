@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Уборка участков — Игорь</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+header {
+    background: #f7f7f7;
+    padding: 30px 0;
+    text-align: center;
+}
+#services {
+    background: #e9ecef;
+    padding: 40px 0;
+    text-align: center;
+}
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.service {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+}
+#advantages {
+    padding: 40px 0;
+    text-align: center;
+}
+#advantages li {
+    background: #007bff;
+    color: #fff;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+    list-style: none;
+}
+#contact {
+    background: #f7f7f7;
+    padding: 40px 0;
+    text-align: center;
+}
+input, textarea {
+    width: 90%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+}
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>Уборка участков и вывоз мусора</h1>
+        <p>Фастов | Телефон: <a href="tel:09999999">09999999</a></p>
+    </div>
+</header>
+
+<section id="services">
+    <div class="container">
+        <h2>Наши услуги</h2>
+        <div class="services-list">
+            <div class="service">
+                <h3>Уборка участков</h3>
+                <p>Наводим порядок на дачных и садовых участках.</p>
+            </div>
+            <div class="service">
+                <h3>Вывоз мусора</h3>
+                <p>Вывозим ветки, листья, строительный мусор.</p>
+            </div>
+            <div class="service">
+                <h3>Рубка деревьев</h3>
+                <p>Аккуратно спиливаем деревья и кусты.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="advantages">
+    <div class="container">
+        <h2>Почему мы</h2>
+        <ul>
+            <li>Быстро и аккуратно</li>
+            <li>Честные цены</li>
+            <li>Работаем по Фастову</li>
+            <li>Опыт</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Контакты</h2>
+        <p>Игорь</p>
+        <p>Фастов</p>
+        <p>Телефон: <a href="tel:09999999">09999999</a></p>
+
+        <form onsubmit="sendForm(event)">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <textarea placeholder="Сообщение"></textarea>
+            <br><br>
+            <button>Отправить</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    © 2026 Игорь
+</footer>
+
+<script>
+function sendForm(e) {
+    e.preventDefault();
+    alert("Заявка отправлена! Мы вам перезвоним.");
+}
+</script>
+
+</body>
+</html>
