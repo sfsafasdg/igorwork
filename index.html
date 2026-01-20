@@ -6,7 +6,6 @@
 <title>Уборка участков — Игорь</title>
 
 <style>
-/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,9 +21,26 @@ body {
     margin: auto;
 }
 
+/* Меню */
+nav {
+    background: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* Шапка */
 header {
-    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 60px 20px;
@@ -35,7 +51,7 @@ header::after {
     position: absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background: rgba(0,0,0,0.4); /* тёмный слой, чтобы текст был виден */
+    background: rgba(0,0,0,0.4);
 }
 header .header-content {
     position: relative;
@@ -97,28 +113,69 @@ header .btn:hover {
     font-size: 0.95em;
 }
 
-/* Преимущества */
-#advantages {
+/* Прайс */
+#prices {
     padding: 50px 20px;
     text-align: center;
     background: #e9ecef;
 }
-#advantages h2 {
+#prices h2 {
     font-size: 2em;
     margin-bottom: 30px;
 }
-#advantages ul {
-    list-style: none;
-    padding: 0;
+#prices table {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    border-collapse: collapse;
 }
-#advantages li {
+#prices th, #prices td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+#prices th {
     background: #007BFF;
     color: white;
-    padding: 12px;
-    margin: 10px auto;
+}
+
+/* Отзывы */
+#reviews {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f7f7f7;
+}
+#reviews h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.review {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
     max-width: 400px;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Галерея */
+#gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+#gallery h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.gallery-grid img {
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 /* Контакты */
@@ -172,7 +229,7 @@ footer {
 
 /* Адаптив */
 @media(max-width: 768px){
-    .services-list {
+    .services-list, .gallery-grid {
         flex-direction: column;
         align-items: center;
     }
@@ -181,6 +238,15 @@ footer {
 </head>
 
 <body>
+
+<!-- Меню -->
+<nav>
+    <a href="#services">Услуги</a>
+    <a href="#prices">Прайс</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#gallery">Наши работы</a>
+    <a href="#contact">Контакты</a>
+</nav>
 
 <header>
     <div class="header-content">
@@ -210,15 +276,45 @@ footer {
     </div>
 </section>
 
-<section id="advantages">
+<section id="prices">
     <div class="container">
-        <h2>Почему выбирают нас</h2>
-        <ul>
-            <li>Быстро и аккуратно</li>
-            <li>Честные цены</li>
-            <li>Работаем по Фастову</li>
-            <li>Опытная команда</li>
-        </ul>
+        <h2>Прайс-лист</h2>
+        <table>
+            <tr><th>Услуга</th><th>Цена</th></tr>
+            <tr><td>Уборка участка до 10 соток</td><td>1000 грн</td></tr>
+            <tr><td>Вывоз мусора 1 м³</td><td>500 грн</td></tr>
+            <tr><td>Рубка деревьев</td><td>от 700 грн</td></tr>
+        </table>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="container">
+        <h2>Отзывы клиентов</h2>
+        <div class="review">
+            <strong>Ольга П.</strong>
+            <p>Очень довольна работой! Участок чистый, все аккуратно.</p>
+        </div>
+        <div class="review">
+            <strong>Иван К.</strong>
+            <p>Быстро и качественно убрали участок, рекомендую!</p>
+        </div>
+        <div class="review">
+            <strong>Мария С.</strong>
+            <p>Команда молодцы, вывоз мусора сделали за один день.</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="container">
+        <h2>Наши работы</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1580584125409-c236cc7e9d10?auto=format&fit=crop&w=500&q=80" alt="Уборка участка">
+            <img src="https://images.unsplash.com/photo-1601582581855-47de4d7d8241?auto=format&fit=crop&w=500&q=80" alt="Вывоз мусора">
+            <img src="https://images.unsplash.com/photo-1612197520916-2d3e9e1b0cfa?auto=format&fit=crop&w=500&q=80" alt="Рубка деревьев">
+            <img src="https://images.unsplash.com/photo-1595846991448-1809a6db0b3c?auto=format&fit=crop&w=500&q=80" alt="Уборка садового участка">
+        </div>
     </div>
 </section>
 
@@ -248,6 +344,14 @@ function sendForm(e){
     alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
     e.target.reset();
 }
+
+// Плавный скролл при клике на меню
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+    });
+});
 </script>
 
 </body>
