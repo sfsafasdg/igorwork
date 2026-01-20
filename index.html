@@ -1,44 +1,181 @@
-: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 300px;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Уборка участков — Игорь</title>
+
+<style>
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.5;
+    background: #f0f0f0;
+    color: #333;
 }
-#advantages {
-    padding: 40px 0;
+
+/* Контейнер */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Шапка */
+header {
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
+    color: white;
     text-align: center;
+    padding: 60px 20px;
+    position: relative;
+}
+header::after {
+    content: "";
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.4); /* тёмный слой, чтобы текст был виден */
+}
+header .header-content {
+    position: relative;
+    z-index: 1;
+}
+header h1 {
+    font-size: 2em;
+    margin: 0 0 10px 0;
+}
+header p {
+    font-size: 1.2em;
+    margin: 5px 0 20px 0;
+}
+header .btn {
+    display: inline-block;
+    background: #ff9900;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+header .btn:hover {
+    background: #e88a00;
+}
+
+/* Блок услуг */
+#services {
+    background: #f7f7f7;
+    padding: 50px 20px;
+    text-align: center;
+}
+#services h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.service {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.service:hover {
+    transform: translateY(-5px);
+}
+.service h3 {
+    margin-top: 0;
+    color: #007BFF;
+}
+.service p {
+    font-size: 0.95em;
+}
+
+/* Преимущества */
+#advantages {
+    padding: 50px 20px;
+    text-align: center;
+    background: #e9ecef;
+}
+#advantages h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+#advantages ul {
+    list-style: none;
+    padding: 0;
 }
 #advantages li {
-    background: #007bff;
-    color: #fff;
+    background: #007BFF;
+    color: white;
+    padding: 12px;
     margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
     max-width: 400px;
-    list-style: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+/* Контакты */
 #contact {
-    background: #f7f7f7;
-    padding: 40px 0;
+    padding: 50px 20px;
     text-align: center;
+    background: #f7f7f7;
 }
-input, textarea {
+#contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+#contact p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+#contact input, #contact textarea {
     width: 90%;
     max-width: 300px;
     padding: 10px;
-    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
-button {
-    background: #007bff;
-    color: #fff;
+#contact button {
+    background: #007BFF;
+    color: white;
+    padding: 12px 25px;
     border: none;
-    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
+#contact button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
 footer {
     background: #333;
-    color: #fff;
+    color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
+}
+
+/* Адаптив */
+@media(max-width: 768px){
+    .services-list {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 </style>
 </head>
@@ -46,9 +183,10 @@ footer {
 <body>
 
 <header>
-    <div class="container">
-        <h1>Уборка участков и вывоз мусора</h1>
-        <p>Фастов | Телефон: <a href="tel:09999999">09999999</a></p>
+    <div class="header-content">
+        <h1>Уборка участков — Игорь</h1>
+        <p>Фастов | Телефон: <a href="tel:09999999" style="color:white; font-weight:bold;">09999999</a></p>
+        <a class="btn" href="tel:09999999">Позвонить</a>
     </div>
 </header>
 
@@ -62,11 +200,11 @@ footer {
             </div>
             <div class="service">
                 <h3>Вывоз мусора</h3>
-                <p>Вывозим ветки, листья, строительный мусор.</p>
+                <p>Вывозим ветки, листья, строительный и бытовой мусор.</p>
             </div>
             <div class="service">
                 <h3>Рубка деревьев</h3>
-                <p>Аккуратно спиливаем деревья и кусты.</p>
+                <p>Аккуратно спиливаем деревья и кусты, убираем мусор.</p>
             </div>
         </div>
     </div>
@@ -74,12 +212,12 @@ footer {
 
 <section id="advantages">
     <div class="container">
-        <h2>Почему мы</h2>
+        <h2>Почему выбирают нас</h2>
         <ul>
             <li>Быстро и аккуратно</li>
             <li>Честные цены</li>
             <li>Работаем по Фастову</li>
-            <li>Опыт</li>
+            <li>Опытная команда</li>
         </ul>
     </div>
 </section>
@@ -95,8 +233,7 @@ footer {
             <input type="text" placeholder="Ваше имя" required>
             <input type="tel" placeholder="Телефон" required>
             <textarea placeholder="Сообщение"></textarea>
-            <br><br>
-            <button>Отправить</button>
+            <button type="submit">Отправить заявку</button>
         </form>
     </div>
 </section>
@@ -106,9 +243,10 @@ footer {
 </footer>
 
 <script>
-function sendForm(e) {
+function sendForm(e){
     e.preventDefault();
-    alert("Заявка отправлена! Мы вам перезвоним.");
+    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
+    e.target.reset();
 }
 </script>
 
