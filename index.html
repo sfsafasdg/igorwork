@@ -73,7 +73,7 @@ header .btn:hover {
     margin: auto;
 }
 
-/* ---------- Блок услуг ---------- */
+/* ---------- Услуги ---------- */
 #services {
     padding: 60px 20px;
     text-align: center;
@@ -91,24 +91,41 @@ header .btn:hover {
     gap: 25px;
 }
 .service {
-    background: #222;
-    padding: 25px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #ff6a00, #ff8a00);
+    color: #111;
+    padding: 30px 20px;
+    border-radius: 15px;
     width: 280px;
-    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
+    box-shadow: 0 10px 20px rgba(255,106,0,0.4);
+    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .service:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(255,106,0,0.5);
+    box-shadow: 0 15px 30px rgba(255,106,0,0.6);
 }
 .service h3 {
-    color: #ff6a00;
-    margin-top: 0;
+    margin-top: 15px;
 }
 .service p {
     font-size: 0.95em;
-    color: #ddd;
+    margin: 15px 0;
+}
+.service .btn {
+    display: inline-block;
+    background: #111;
+    color: #ff6a00;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.service .btn:hover {
+    background: #222;
+}
+.service .icon {
+    font-size: 50px;
 }
 
 /* ---------- Прайс ---------- */
@@ -122,19 +139,44 @@ header .btn:hover {
     color: #ff6a00;
     margin-bottom: 40px;
 }
-#prices table {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    border-collapse: collapse;
+.price-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
-#prices th, #prices td {
-    border: 1px solid #333;
-    padding: 12px;
+.price-card {
+    background: #222;
+    color: #ff6a00;
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 20px rgba(255,106,0,0.4);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-#prices th {
+.price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255,106,0,0.6);
+}
+.price-card h3 {
+    margin-bottom: 15px;
+}
+.price-card .price {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.price-card .btn {
     background: #ff6a00;
     color: #111;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.price-card .btn:hover {
+    background: #ffa500;
 }
 
 /* ---------- Отзывы ---------- */
@@ -238,7 +280,7 @@ footer {
 
 /* ---------- Адаптив ---------- */
 @media(max-width: 768px){
-    .services-list, .gallery-grid {
+    .services-list, .price-cards, .gallery-grid {
         flex-direction: column;
         align-items: center;
     }
@@ -266,44 +308,58 @@ footer {
     <a class="btn" href="tel:09999999">Позвонить</a>
 </header>
 
-<!-- Услуги -->
+<!-- ---------- Услуги ---------- -->
 <section id="services">
     <div class="container">
         <h2>Наши услуги</h2>
         <div class="services-list">
             <div class="service">
+                <div class="icon">🧹</div>
                 <h3>Уборка участков</h3>
-                <p>Наводим порядок на дачных и садовых участках.</p>
+                <p>Наводим порядок на дачных и садовых участках быстро и качественно.</p>
                 <a class="btn" href="#contact">Заказать</a>
             </div>
             <div class="service">
+                <div class="icon">🚛</div>
                 <h3>Вывоз мусора</h3>
-                <p>Вывозим ветки, листья, строительный и бытовой мусор.</p>
+                <p>Вывозим ветки, листья, строительный и бытовой мусор без задержек.</p>
                 <a class="btn" href="#contact">Заказать</a>
             </div>
             <div class="service">
+                <div class="icon">🌳</div>
                 <h3>Рубка деревьев</h3>
-                <p>Аккуратно спиливаем деревья и кусты, убираем мусор.</p>
+                <p>Аккуратно спиливаем деревья и кусты, убираем весь мусор.</p>
                 <a class="btn" href="#contact">Заказать</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Прайс -->
+<!-- ---------- Прайс ---------- -->
 <section id="prices">
     <div class="container">
         <h2>Прайс-лист</h2>
-        <table>
-            <tr><th>Услуга</th><th>Цена</th></tr>
-            <tr><td>Уборка участка до 10 соток</td><td>1000 грн</td></tr>
-            <tr><td>Вывоз мусора 1 м³</td><td>500 грн</td></tr>
-            <tr><td>Рубка деревьев</td><td>от 700 грн</td></tr>
-        </table>
+        <div class="price-cards">
+            <div class="price-card">
+                <h3>Уборка участка до 10 соток</h3>
+                <p class="price">1000 грн</p>
+                <a class="btn" href="#contact">Заказать</a>
+            </div>
+            <div class="price-card">
+                <h3>Вывоз мусора 1 м³</h3>
+                <p class="price">500 грн</p>
+                <a class="btn" href="#contact">Заказать</a>
+            </div>
+            <div class="price-card">
+                <h3>Рубка деревьев</h3>
+                <p class="price">от 700 грн</p>
+                <a class="btn" href="#contact">Заказать</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Отзывы -->
+<!-- ---------- Отзывы ---------- -->
 <section id="reviews">
     <div class="container">
         <h2>Отзывы клиентов</h2>
@@ -322,7 +378,7 @@ footer {
     </div>
 </section>
 
-<!-- Галерея -->
+<!-- ---------- Галерея ---------- -->
 <section id="gallery">
     <div class="container">
         <h2>Наши работы</h2>
@@ -335,7 +391,7 @@ footer {
     </div>
 </section>
 
-<!-- Контакты -->
+<!-- ---------- Контакты ---------- -->
 <section id="contact">
     <div class="container">
         <h2>Контакты</h2>
