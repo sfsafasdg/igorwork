@@ -6,122 +6,121 @@
 <title>Уборка участков — Игорь</title>
 
 <style>
+/* ---------- Общие стили ---------- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     line-height: 1.5;
-    background: #f0f0f0;
-    color: #333;
+    background: #111; /* основной фон чёрный */
+    color: #fff;
 }
 
-/* Контейнер */
+/* ---------- Меню ---------- */
+nav {
+    position: sticky;
+    top: 0;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    z-index: 1000;
+}
+nav a {
+    color: #ff6a00; /* оранжевый */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffa500;
+}
+
+/* ---------- Шапка ---------- */
+header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #000;
+}
+header p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+header .btn {
+    background: #ff6a00;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+header .btn:hover {
+    background: #ffa500;
+}
+
+/* ---------- Контейнер ---------- */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
-/* Меню */
-nav {
-    background: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Шапка */
-header {
-    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    position: relative;
-}
-header::after {
-    content: "";
-    position: absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.4);
-}
-header .header-content {
-    position: relative;
-    z-index: 1;
-}
-header h1 {
-    font-size: 2em;
-    margin: 0 0 10px 0;
-}
-header p {
-    font-size: 1.2em;
-    margin: 5px 0 20px 0;
-}
-header .btn {
-    display: inline-block;
-    background: #ff9900;
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-header .btn:hover {
-    background: #e88a00;
-}
-
-/* Блок услуг */
+/* ---------- Блок услуг ---------- */
 #services {
-    background: #f7f7f7;
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background: #111;
 }
 #services h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 50px;
 }
 .services-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 .service {
-    background: white;
+    background: #222;
     padding: 25px;
-    border-radius: 10px;
-    width: 250px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 .service:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(255,106,0,0.5);
 }
 .service h3 {
+    color: #ff6a00;
     margin-top: 0;
-    color: #007BFF;
 }
 .service p {
     font-size: 0.95em;
+    color: #ddd;
 }
 
-/* Прайс */
+/* ---------- Прайс ---------- */
 #prices {
-    padding: 50px 20px;
+    background: #1a1a1a;
+    padding: 60px 20px;
     text-align: center;
-    background: #e9ecef;
 }
 #prices h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 40px;
 }
 #prices table {
     width: 90%;
@@ -130,108 +129,121 @@ header .btn:hover {
     border-collapse: collapse;
 }
 #prices th, #prices td {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid #333;
+    padding: 12px;
 }
 #prices th {
-    background: #007BFF;
-    color: white;
+    background: #ff6a00;
+    color: #111;
 }
 
-/* Отзывы */
+/* ---------- Отзывы ---------- */
 #reviews {
-    padding: 50px 20px;
+    background: #111;
+    padding: 60px 20px;
     text-align: center;
-    background: #f7f7f7;
 }
 #reviews h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 40px;
 }
 .review {
-    background: white;
+    background: #222;
     padding: 20px;
-    margin: 15px auto;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
+    transition: transform 0.3s;
+}
+.review:hover {
+    transform: translateY(-5px);
+}
+.review strong {
+    color: #ffa500;
 }
 
-/* Галерея */
+/* ---------- Галерея ---------- */
 #gallery {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background: #1a1a1a;
 }
 #gallery h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 40px;
 }
 .gallery-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 .gallery-grid img {
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255,106,0,0.3);
+    transition: transform 0.3s;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05);
 }
 
-/* Контакты */
+/* ---------- Контакты ---------- */
 #contact {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
-    background: #f7f7f7;
+    background: #111;
 }
 #contact h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 25px;
 }
 #contact p {
-    margin: 5px 0;
     font-size: 1.1em;
-}
-#contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
+    margin: 5px 0;
 }
 #contact input, #contact textarea {
     width: 90%;
-    max-width: 300px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    max-width: 320px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin: 5px 0;
 }
 #contact button {
-    background: #007BFF;
-    color: white;
-    padding: 12px 25px;
+    background: #ff6a00;
+    color: #111;
+    padding: 14px 35px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 #contact button:hover {
-    background: #0056b3;
+    background: #ffa500;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
-    background: #333;
-    color: white;
+    background: #222;
+    color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
-/* Адаптив */
+/* ---------- Адаптив ---------- */
 @media(max-width: 768px){
     .services-list, .gallery-grid {
         flex-direction: column;
         align-items: center;
+    }
+    nav {
+        flex-direction: column;
     }
 }
 </style>
@@ -249,13 +261,12 @@ footer {
 </nav>
 
 <header>
-    <div class="header-content">
-        <h1>Уборка участков — Игорь</h1>
-        <p>Фастов | Телефон: <a href="tel:09999999" style="color:white; font-weight:bold;">09999999</a></p>
-        <a class="btn" href="tel:09999999">Позвонить</a>
-    </div>
+    <h1>Уборка участков — Игорь</h1>
+    <p>Фастов | Телефон: <a href="tel:09999999" style="color:#ffa500; font-weight:bold;">09999999</a></p>
+    <a class="btn" href="tel:09999999">Позвонить</a>
 </header>
 
+<!-- Услуги -->
 <section id="services">
     <div class="container">
         <h2>Наши услуги</h2>
@@ -263,19 +274,23 @@ footer {
             <div class="service">
                 <h3>Уборка участков</h3>
                 <p>Наводим порядок на дачных и садовых участках.</p>
+                <a class="btn" href="#contact">Заказать</a>
             </div>
             <div class="service">
                 <h3>Вывоз мусора</h3>
                 <p>Вывозим ветки, листья, строительный и бытовой мусор.</p>
+                <a class="btn" href="#contact">Заказать</a>
             </div>
             <div class="service">
                 <h3>Рубка деревьев</h3>
                 <p>Аккуратно спиливаем деревья и кусты, убираем мусор.</p>
+                <a class="btn" href="#contact">Заказать</a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Прайс -->
 <section id="prices">
     <div class="container">
         <h2>Прайс-лист</h2>
@@ -288,6 +303,7 @@ footer {
     </div>
 </section>
 
+<!-- Отзывы -->
 <section id="reviews">
     <div class="container">
         <h2>Отзывы клиентов</h2>
@@ -306,6 +322,7 @@ footer {
     </div>
 </section>
 
+<!-- Галерея -->
 <section id="gallery">
     <div class="container">
         <h2>Наши работы</h2>
@@ -318,6 +335,7 @@ footer {
     </div>
 </section>
 
+<!-- Контакты -->
 <section id="contact">
     <div class="container">
         <h2>Контакты</h2>
@@ -339,14 +357,15 @@ footer {
 </footer>
 
 <script>
+// Форма
 function sendForm(e){
     e.preventDefault();
     alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
     e.target.reset();
 }
 
-// Плавный скролл при клике на меню
-document.querySelectorAll('nav a').forEach(link => {
+// Плавный скролл
+document.querySelectorAll('nav a').forEach(link=>{
     link.addEventListener('click', function(e){
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
